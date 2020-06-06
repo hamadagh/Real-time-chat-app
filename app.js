@@ -6,7 +6,7 @@ app.use(express.urlencoded({extended: true}));
 
 
 // routes
-app.use(require("./routes/user"))
+app.use("/user", require("./routes/user"))
 
 
 // error handlers

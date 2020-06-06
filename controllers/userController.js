@@ -7,12 +7,12 @@ const jwt = require("jwt-then");
 exports.register = async (req, res) => {
     const {name, email, password} = req.body;
 
-    const emailRegex = /@gmail.com|@hotmail.com$/;
+    //  const emailRegex = /@gmail.com|@hotmail.com/;
 
-    if(emailRegex.test(email)) throw "Email is not supported";
+    // if(emailRegex.test(email)) throw "Email is not supported";
     if(password.length < 6) throw "passowrd is too short (min. 6 characters)";
 
-    const emailExist = await user.findOne({
+    const emailExist = await User.findOne({
         email,
     });
     if (emailExist) throw "email already exist, please sign in"
