@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 import "./AuthStyle.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -17,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
     "& label": {
       color: "white",
     },
+  },
+  button: {
+    margin: theme.spacing(1),
+    width: "32ch",
   },
 }));
 
@@ -40,6 +45,12 @@ function SignUp() {
           className="input-field"
         />
       </form>
+      <Button className={classes.button} variant="contained" color="primary">
+        Create Account
+      </Button>
+      <p>
+        Have an account?<a>Log in</a>
+      </p>
     </div>
   );
 }
