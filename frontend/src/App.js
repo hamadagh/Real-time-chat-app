@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/SignIn" component={AuthPage} />
+        <Route path="/SignIn" component={AuthPage} exact />
       </Switch>
     </BrowserRouter>
   );
