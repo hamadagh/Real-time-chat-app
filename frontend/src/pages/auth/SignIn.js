@@ -30,7 +30,7 @@ function SignIn() {
 
   return (
     <div className="sign-in">
-      <h2>Sign up</h2>
+      <h2>Sign in</h2>
       <form className={classes.root} noValidate autoComplete="off">
         <TextField
           id="outlined-basic"
