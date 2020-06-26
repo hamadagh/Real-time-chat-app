@@ -16,7 +16,15 @@
 }
 
 .chat-groups {
-  width: 15%;
+  width: 20%;
   height: 70vh;
   background-color: #383e72;
+  border-radius: 15px;
+}
+
+.chat-board {
+  width: 70%;
+  height: 70vh;
+  background-color: #383e72;
+  border-radius: 15px;
 }
