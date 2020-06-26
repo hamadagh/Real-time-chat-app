@@ -1,5 +1,5 @@
 import React from "react";
-import "../dasboard.css";
+import "../dashboard.css";
 
 function ChatBoard() {
   return (

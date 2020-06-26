@@ -5,6 +5,13 @@
   display: flex;
   flex-direction: column;
 }
+
+.dashboard-body {
+  display: flex;
+  width: 94%;
+  margin-left: auto;
+  margin-right: auto;
+}
 .nav-bar {
   background-color: #383e72;
   width: 94%;
