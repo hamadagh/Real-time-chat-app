@@ -11,6 +11,7 @@
   width: 94%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 2vw;
 }
 .nav-bar {
   background-color: #383e72;
@@ -23,14 +24,15 @@
 }
 
 .chat-groups {
-  width: 20%;
+  width: 25%;
   height: 70vh;
   background-color: #383e72;
   border-radius: 15px;
+  margin-right: 2vw;
 }
 
 .chat-board {
-  width: 70%;
+  width: 73%;
   height: 70vh;
   background-color: #383e72;
   border-radius: 15px;
