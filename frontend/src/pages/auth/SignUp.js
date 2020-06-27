@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import axios from "axios";
 import "./AuthStyle.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -27,6 +28,13 @@ const useStyles = makeStyles((theme) => ({
 
 function SignUp() {
   const classes = useStyles();
+  const emailRef = React.createRef();
+  const passwordRef = React.createRef();
+
+  const SignUserUp = () => {
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+  };
 
   return (
     <div className="sign-up">
@@ -37,12 +45,14 @@ function SignUp() {
           label="Email"
           variant="filled"
           className="input-field"
+          ref={emailRef}
         />
         <TextField
           id="outlined-basic"
           label="Password"
           variant="filled"
           className="input-field"
+          ref={passwordRef}
         />
       </form>
       <Button className={classes.button} variant="contained" color="primary">
