@@ -28,24 +28,28 @@ const useStyles = makeStyles((theme) => ({
 
 function SignUp() {
   const classes = useStyles();
+  const nameRef = React.createRef();
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
 
   const signUserUp = () => {
+    const name = nameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
     axios
-      .post("http://localhost:8000/register", {
-        email,
-        password,
-      })
-      .then((response) => {
+      .post(
+        "http://localhost:3001/user/register",
+        `name=${name}&email=${email}&password=${password}`
+      )
+      .then((res) => {
         console.log("user created !!");
       })
       .catch((err) => {
         console.log(err);
       });
+    console.log(name);
+    console.log(email);
   };
 
   return (
@@ -59,17 +63,24 @@ function SignUp() {
       >
         <TextField
           id="outlined-basic"
+          label="Username"
+          variant="filled"
+          className="input-field"
+          inputRef={nameRef}
+        />
+        <TextField
+          id="outlined-basic"
           label="Email"
           variant="filled"
           className="input-field"
-          ref={emailRef}
+          inputRef={emailRef}
         />
         <TextField
           id="outlined-basic"
           label="Password"
           variant="filled"
           className="input-field"
-          ref={passwordRef}
+          inputRef={passwordRef}
         />
         <Button
           className={classes.button}
