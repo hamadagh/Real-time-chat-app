@@ -48,8 +48,6 @@ function SignUp() {
       .catch((err) => {
         console.log(err);
       });
-    console.log(name);
-    console.log(email);
   };
 
   return (
