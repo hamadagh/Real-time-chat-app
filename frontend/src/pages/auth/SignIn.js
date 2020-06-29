@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import Snackbar from "@material-ui/core/Snackbar";
+import Alert from "@material-ui/lab/Alert";
 import axios from "axios";
 import "./AuthStyle.css";
 
@@ -24,12 +26,19 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     width: "32ch",
   },
+  snackbar: {
+    width: "100%",
+    "& > * + *": {
+      marginTop: theme.spacing(2),
+    },
+  },
 }));
 
 function SignIn() {
   const classes = useStyles();
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
+  const [openSnackBar, setOpenSnackBar] = React.useState(false);
 
   const signUserIn = () => {
     const email = emailRef.current.value;
@@ -42,6 +51,7 @@ function SignIn() {
       )
       .then((res) => {
         console.log("user signed in successfully !!");
+        setOpenSnackBar(true);
       })
       .catch((err) => {
         console.log(err);
@@ -81,7 +91,11 @@ function SignIn() {
           Sign In
         </Button>
       </form>
-
+      <div className={classes.snackbar}>
+        <Snackbar open={openSnackBar} autoHideDuration={6000}>
+          <Alert severity="success">This is a success message!</Alert>
+        </Snackbar>
+      </div>
       <p>
         Not registered yet? <a>Sign up</a>
       </p>
