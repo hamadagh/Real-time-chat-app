@@ -3,7 +3,7 @@ import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 
 function AuthPage() {
-  const [signIn, setSignIn] = useState(true);
+  const [signIn, setSignIn] = useState(false);
 
   if (signIn) {
     return <SignIn />;

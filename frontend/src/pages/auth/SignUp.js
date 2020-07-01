@@ -52,47 +52,50 @@ function SignUp() {
 
   return (
     <div className="sign-up">
-      <h2>Sign up</h2>
-      <form
-        className={classes.root}
-        noValidate
-        autoComplete="off"
-        onSubmit={signUserUp}
-      >
-        <TextField
-          id="outlined-basic"
-          label="Username"
-          variant="filled"
-          className="input-field"
-          inputRef={nameRef}
-        />
-        <TextField
-          id="outlined-basic"
-          label="Email"
-          variant="filled"
-          className="input-field"
-          inputRef={emailRef}
-        />
-        <TextField
-          id="outlined-basic"
-          label="Password"
-          variant="filled"
-          className="input-field"
-          inputRef={passwordRef}
-        />
-        <Button
-          className={classes.button}
-          variant="contained"
-          color="primary"
-          onClick={signUserUp}
+      <div className="sign-up-form">
+        <h2 className="sign-up-title">Sign up</h2>
+        <form
+          className={classes.root}
+          noValidate
+          autoComplete="off"
+          onSubmit={signUserUp}
         >
-          Create Account
-        </Button>
-      </form>
+          <TextField
+            id="outlined-basic"
+            label="Username"
+            variant="filled"
+            className="input-field"
+            inputRef={nameRef}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Email"
+            variant="filled"
+            className="input-field"
+            inputRef={emailRef}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Password"
+            variant="filled"
+            className="input-field"
+            inputRef={passwordRef}
+          />
+          <Button
+            className={classes.button}
+            variant="contained"
+            color="primary"
+            onClick={signUserUp}
+          >
+            Create Account
+          </Button>
+        </form>
 
-      <p>
-        Have an account?<a>Log in</a>
-      </p>
+        <p className="sign-up-footer">
+          Have an account?<a>Log in</a>
+        </p>
+      </div>
+      <div className="sign-up-caroussel"></div>
     </div>
   );
 }

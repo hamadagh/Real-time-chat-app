@@ -101,7 +101,7 @@ function SignIn() {
             <Alert severity="success">This is a success message!</Alert>
           </Snackbar>
         </div>
-        <p>
+        <p className="sign-in-footer">
           Not registered yet? <a>Sign up</a>
         </p>
       </div>
