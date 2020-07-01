@@ -8,10 +8,17 @@
   background-color: #202343;
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+.sign-in-form {
+  width: 38%;
 }
 .sign-in-title {
   text-align: center;
+}
+.sign-in-caroussel {
+  width: 62%;
+  background-color: #2c315b;
 }
 
 .input-field {

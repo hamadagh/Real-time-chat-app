@@ -14,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       margin: theme.spacing(1),
       width: "25ch",
+      marginRight: "auto",
+      marginLeft: "auto",
     },
     "& label.Mui-focused": {
       color: "white",
@@ -25,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
     width: "32ch",
+    marginRight: "auto",
+    marginLeft: "auto",
   },
   snackbar: {
     width: "100%",
@@ -61,44 +65,47 @@ function SignIn() {
 
   return (
     <div className="sign-in">
-      <h2 className="sign-in-title">Sign in</h2>
-      <form
-        className={classes.root}
-        noValidate
-        autoComplete="off"
-        onSubmit={signUserIn}
-      >
-        <TextField
-          id="outlined-basic"
-          label="Email"
-          variant="filled"
-          className="input-field"
-          inputRef={emailRef}
-        />
-        <TextField
-          id="outlined-basic"
-          label="Password"
-          variant="filled"
-          className="input-field"
-          inputRef={passwordRef}
-        />
-        <Button
-          className={classes.button}
-          variant="contained"
-          color="primary"
-          onClick={signUserIn}
+      <div className="sign-in-form">
+        <h2 className="sign-in-title">Sign in</h2>
+        <form
+          className={classes.root}
+          noValidate
+          autoComplete="off"
+          onSubmit={signUserIn}
         >
-          Sign In
-        </Button>
-      </form>
-      <div className={classes.snackbar}>
-        <Snackbar open={openSnackBar} autoHideDuration={6000}>
-          <Alert severity="success">This is a success message!</Alert>
-        </Snackbar>
+          <TextField
+            id="outlined-basic"
+            label="Email"
+            variant="filled"
+            className="input-field"
+            inputRef={emailRef}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Password"
+            variant="filled"
+            className="input-field"
+            inputRef={passwordRef}
+          />
+          <Button
+            className={classes.button}
+            variant="contained"
+            color="primary"
+            onClick={signUserIn}
+          >
+            Sign In
+          </Button>
+        </form>
+        <div className={classes.snackbar}>
+          <Snackbar open={openSnackBar} autoHideDuration={6000}>
+            <Alert severity="success">This is a success message!</Alert>
+          </Snackbar>
+        </div>
+        <p>
+          Not registered yet? <a>Sign up</a>
+        </p>
       </div>
-      <p>
-        Not registered yet? <a>Sign up</a>
-      </p>
+      <div className="sign-in-caroussel"></div>
     </div>
   );
 }
