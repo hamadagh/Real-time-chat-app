@@ -61,7 +61,7 @@ function SignIn() {
 
   return (
     <div className="sign-in">
-      <h2>Sign in</h2>
+      <h2 className="sign-in-title">Sign in</h2>
       <form
         className={classes.root}
         noValidate
