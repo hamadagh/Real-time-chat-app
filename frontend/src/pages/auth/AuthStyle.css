@@ -5,10 +5,14 @@
   height: 100vh;
 }
 .sign-up-form {
+  margin-top: 15vh;
   width: 38%;
 }
 .sign-up-title {
   text-align: center;
+  color: white;
+  margin-bottom: 8vh;
+  font-size: 50px;
 }
 .sign-up-footer {
   text-align: center;
@@ -16,6 +20,9 @@
 .sign-up-caroussel {
   width: 62%;
   background-color: #2c315b;
+}
+.log-in-button {
+  color: white;
 }
 
 .sign-in {
@@ -25,10 +32,14 @@
   flex-direction: row;
 }
 .sign-in-form {
+  margin-top: 15vh;
   width: 38%;
 }
 .sign-in-title {
   text-align: center;
+  color: white;
+  margin-bottom: 8vh;
+  font-size: 50px;
 }
 .sign-in-footer {
   text-align: center;
@@ -36,6 +47,9 @@
 .sign-in-caroussel {
   width: 62%;
   background-color: #2c315b;
+}
+.sign-up-button {
+  color: white;
 }
 
 .input-field {

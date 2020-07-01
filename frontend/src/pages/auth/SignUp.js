@@ -12,6 +12,8 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       margin: theme.spacing(1),
       width: "25ch",
+      marginRight: "auto",
+      marginLeft: "auto",
     },
     "& label.Mui-focused": {
       color: "white",
@@ -23,10 +25,12 @@ const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
     width: "32ch",
+    marginRight: "auto",
+    marginLeft: "auto",
   },
 }));
 
-function SignUp() {
+const SignUp = ({ passedFunction }) => {
   const classes = useStyles();
   const nameRef = React.createRef();
   const emailRef = React.createRef();
@@ -92,12 +96,15 @@ function SignUp() {
         </form>
 
         <p className="sign-up-footer">
-          Have an account?<a>Log in</a>
+          Have an account?
+          <span className="log-in-button" onClick={() => passedFunction()}>
+            Log in
+          </span>
         </p>
       </div>
       <div className="sign-up-caroussel"></div>
     </div>
   );
-}
+};
 
 export default SignUp;

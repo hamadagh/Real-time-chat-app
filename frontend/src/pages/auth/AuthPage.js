@@ -5,10 +5,17 @@ import SignIn from "./SignIn";
 function AuthPage() {
   const [signIn, setSignIn] = useState(false);
 
+  const handleSignIn = () => {
+    setSignIn(true);
+  };
+  const handleSignUp = () => {
+    setSignIn(false);
+  };
+
   if (signIn) {
-    return <SignIn />;
+    return <SignIn passedFunction={handleSignUp} />;
   } else {
-    return <SignUp />;
+    return <SignUp passedFunction={handleSignIn} />;
   }
 }
 

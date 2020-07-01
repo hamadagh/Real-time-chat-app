@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SignIn() {
+const SignIn = ({ passedFunction }) => {
   const classes = useStyles();
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
@@ -102,12 +102,15 @@ function SignIn() {
           </Snackbar>
         </div>
         <p className="sign-in-footer">
-          Not registered yet? <a>Sign up</a>
+          Not registered yet?{" "}
+          <span className="sign-up-button" onClick={() => passedFunction()}>
+            Sign up
+          </span>
         </p>
       </div>
       <div className="sign-in-caroussel"></div>
     </div>
   );
-}
+};
 
 export default SignIn;
