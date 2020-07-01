@@ -1,6 +1,11 @@
 .sign-up {
   display: flex;
   flex-direction: column;
+  background-color: #202343;
+}
+
+.sign-in {
+  background-color: #202343;
 }
 
 .input-field {
