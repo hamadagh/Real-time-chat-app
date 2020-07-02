@@ -2,8 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import Snackbar from "@material-ui/core/Snackbar";
-import Alert from "@material-ui/lab/Alert";
 import axios from "axios";
 import "./AuthStyle.css";
 
@@ -30,12 +28,6 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "auto",
     marginLeft: "auto",
   },
-  snackbar: {
-    width: "100%",
-    "& > * + *": {
-      marginTop: theme.spacing(2),
-    },
-  },
 }));
 
 const SignUp = ({ passedFunction }, props) => {
@@ -57,8 +49,6 @@ const SignUp = ({ passedFunction }, props) => {
       )
       .then((res) => {
         console.log("user created !!");
-        setOpenSnackBar(true);
-        props.history.push("/login");
       })
       .catch((err) => {
         console.log(err);
@@ -105,11 +95,7 @@ const SignUp = ({ passedFunction }, props) => {
             Create Account
           </Button>
         </form>
-        <div className={classes.snackbar}>
-          <Snackbar open={openSnackBar} autoHideDuration={6000}>
-            <Alert severity="success">You Signed Up Successfully !</Alert>
-          </Snackbar>
-        </div>
+
         <p className="sign-up-footer">
           Have an account?{" "}
           <span className="log-in-button" onClick={() => passedFunction()}>
