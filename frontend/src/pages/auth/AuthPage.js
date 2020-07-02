@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
+import SnackBar from "./SnackBar";
 
 function AuthPage() {
   const [signIn, setSignIn] = useState(false);
+  const [openSnackBar, setOpenSnackBar] = useState("");
 
   const handleSignIn = () => {
     setSignIn(true);
@@ -13,9 +15,19 @@ function AuthPage() {
   };
 
   if (signIn) {
-    return <SignIn passedFunction={handleSignUp} />;
+    return (
+      <div>
+        <SignIn passedFunction={handleSignUp} openSnackBar={setOpenSnackBar} />
+        <SnackBar snackBar={openSnackBar} />
+      </div>
+    );
   } else {
-    return <SignUp passedFunction={handleSignIn} />;
+    return (
+      <div>
+        <SignUp passedFunction={handleSignIn} openSnackBar={setOpenSnackBar} />
+        <SnackBar snackBar={openSnackBar} />
+      </div>
+    );
   }
 }
 

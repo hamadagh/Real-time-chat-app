@@ -30,12 +30,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignUp = ({ passedFunction }, props) => {
+const SignUp = ({ passedFunction, openSnackBar }) => {
   const classes = useStyles();
   const nameRef = React.createRef();
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
-  const [openSnackBar, setOpenSnackBar] = React.useState(false);
 
   const signUserUp = (props) => {
     const name = nameRef.current.value;
@@ -49,6 +48,7 @@ const SignUp = ({ passedFunction }, props) => {
       )
       .then((res) => {
         console.log("user created !!");
+        openSnackBar("success");
       })
       .catch((err) => {
         console.log(err);

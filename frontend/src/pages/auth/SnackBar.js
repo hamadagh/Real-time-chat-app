@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
@@ -12,14 +12,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SnackBar() {
+function SnackBar({ snackBar }) {
   const classes = useStyles();
-  const [snackBarSev, setSnackBarSev] = React.useState();
+  const [snackBarSev, setSnackBarSev] = useState("");
+  console.log(snackBar);
+  useEffect(() => {
+    setSnackBarSev(snackBar);
+  });
   if (snackBarSev === "success") {
     return (
       <div>
         <div className={classes.snackbar}>
-          <Snackbar open={openSnackBar} autoHideDuration={6000}>
+          <Snackbar open={true} autoHideDuration={6000}>
             <Alert severity="success">You Signed Up Successfully !</Alert>
           </Snackbar>
         </div>
@@ -29,13 +33,13 @@ function SnackBar() {
     return (
       <div>
         <div className={classes.snackbar}>
-          <Snackbar open={openSnackBar} autoHideDuration={6000}>
+          <Snackbar open={true} autoHideDuration={6000}>
             <Alert severity="error">check email or password!</Alert>
           </Snackbar>
         </div>
       </div>
     );
-  }
+  } else return null;
 }
 
 export default SnackBar;
