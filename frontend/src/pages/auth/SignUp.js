@@ -49,6 +49,7 @@ const SignUp = ({ passedFunction, openSnackBar }) => {
       .then((res) => {
         console.log("user created !!");
         openSnackBar("success");
+        passedFunction();
       })
       .catch((err) => {
         console.log(err);
