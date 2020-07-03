@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignIn = ({ passedFunction }) => {
+const SignIn = ({ passedFunction }, props) => {
   const classes = useStyles();
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
@@ -46,6 +46,9 @@ const SignIn = ({ passedFunction }) => {
       )
       .then((res) => {
         console.log("user signed in successfully !!");
+        console.log(props);
+        localStorage.setItem("token", res.data.token);
+        props.history.push("/Dashboard");
       })
       .catch((err) => {
         console.log(err);
