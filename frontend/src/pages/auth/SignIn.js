@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -30,10 +31,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignIn = ({ passedFunction }, props) => {
+const SignIn = ({ passedFunction }) => {
   const classes = useStyles();
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
+  const history = useHistory();
 
   const signUserIn = () => {
     const email = emailRef.current.value;
@@ -46,9 +48,9 @@ const SignIn = ({ passedFunction }, props) => {
       )
       .then((res) => {
         console.log("user signed in successfully !!");
-        console.log(props);
         localStorage.setItem("token", res.data.token);
-        props.history.push("/Dashboard");
+        console.log(history);
+        history.push("/Dashboard");
       })
       .catch((err) => {
         console.log(err);
