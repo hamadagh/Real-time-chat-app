@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
+import io from "socket.io-client";
 import "./AuthStyle.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -36,6 +37,7 @@ const SignIn = ({ passedFunction }) => {
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
   const history = useHistory();
+  const socket = io.connect("http://localhost:3001");
 
   const signUserIn = () => {
     const email = emailRef.current.value;
