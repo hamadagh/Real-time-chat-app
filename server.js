@@ -33,3 +33,7 @@ const server = app.listen(PORT, () =>
   console.log(`Server running on port ${PORT}`)
 );
 const io = socket(server);
+
+io.on("connection", (socket) => {
+  console.log("a user connected");
+});
