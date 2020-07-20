@@ -7,11 +7,12 @@ const Index = () => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      history.push("/register");
+      return history.push("/register");
     } else {
-      history.push("/Dashboard");
+      return history.push("/Dashboard");
     }
   }, []);
+  return null;
 };
 
 export default Index;

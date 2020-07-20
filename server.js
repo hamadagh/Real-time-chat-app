@@ -26,6 +26,7 @@ require("./models/Chatroom");
 require("./models/Message");
 
 const app = require("./app");
+const jwt = require("jwt-then");
 
 const PORT = 3001 || process.env.PORT;
 
@@ -34,10 +35,21 @@ const server = app.listen(PORT, () =>
 );
 const io = socket(server);
 
+io.use(async (socket, next) => {
+  try {
+    const token = socket.handshake.query.token;
+    const payload = await jwt.verify(token, process.env.SECRET);
+    socket.userId = payload.id;
+    next();
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 io.on("connection", (socket) => {
-  console.log("a user connected", socket.id);
+  console.log(`${socket.userId} is connected`);
 
   socket.on("disconnect", () => {
-    console.log("user disconnected");
+    console.log(`${socket.userId} is disconnected`);
   });
 });
