@@ -37,3 +37,12 @@
   background-color: #383e72;
   border-radius: 15px;
 }
+.board-input {
+  display: flex;
+}
+.message-input {
+  width: 80%;
+}
+.button-input {
+  width: 10%;
+}

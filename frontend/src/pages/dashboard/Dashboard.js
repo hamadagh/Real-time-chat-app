@@ -4,14 +4,18 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { blue } from "@material-ui/core/colors";
+import SendIcon from "@material-ui/icons/Send";
 import "./dashboard.css";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(1),
-      width: "90vw",
-    },
+  root: {},
+  input: {
+    width: "100%",
+  },
+  button: {
+    width: "100%",
+    padding: "16px",
+    marginLeft: "15px",
   },
 }));
 
@@ -50,12 +54,21 @@ const Dashboard = ({ socket }) => {
             </div>
           </div>
           <div className="board-input">
-            <div>
-              <TextField id="filled-basic" label="Filled" variant="filled" />
+            <div className="message-input">
+              <TextField
+                id="filled-basic"
+                label="Filled"
+                variant="filled"
+                className={classes.input}
+              />
             </div>
-            <div>
-              <ColorButton variant="contained" color="primary">
-                Custom CSS
+            <div className="button-input">
+              <ColorButton
+                variant="contained"
+                color="primary"
+                className={classes.button}
+              >
+                <SendIcon />
               </ColorButton>
             </div>
           </div>
