@@ -40,8 +40,16 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/" component={Index} exact />
-        <Route path="/register" component={AuthPage} exact />
-        <Route path="/Dashboard" component={Dashboard} exact />
+        <Route
+          path="/register"
+          render={() => <AuthPage setupSocket={setupSocket} />}
+          exact
+        />
+        <Route
+          path="/Dashboard"
+          render={() => <Dashboard socket={newSocket} />}
+          exact
+        />
       </Switch>
     </BrowserRouter>
   );
