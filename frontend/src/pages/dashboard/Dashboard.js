@@ -4,12 +4,6 @@ import io from "socket.io-client";
 import "./dashboard.css";
 
 function Dashboard() {
-  const socket = io("http://localhost:3001", {
-    query: {
-      token: localStorage.getItem("token"),
-    },
-  });
-
   return (
     <div className="dashboard">
       <div className="dashboard-navbar">
