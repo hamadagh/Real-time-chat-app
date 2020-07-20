@@ -1,17 +1,29 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { blue } from "@material-ui/core/colors";
 import "./dashboard.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: theme.spacing(1),
-      width: "90%",
+      width: "90vw",
     },
   },
 }));
+
+const ColorButton = withStyles((theme) => ({
+  root: {
+    color: theme.palette.getContrastText(blue[500]),
+    backgroundColor: blue[500],
+    "&:hover": {
+      backgroundColor: blue[700],
+    },
+  },
+}))(Button);
 
 const Dashboard = ({ socket }) => {
   const classes = useStyles();
@@ -42,7 +54,9 @@ const Dashboard = ({ socket }) => {
               <TextField id="filled-basic" label="Filled" variant="filled" />
             </div>
             <div>
-              <button className="send-button">Send</button>
+              <ColorButton variant="contained" color="primary">
+                Custom CSS
+              </ColorButton>
             </div>
           </div>
         </div>
