@@ -29,11 +29,8 @@ const app = require("./app");
 const jwt = require("jwt-then");
 
 const PORT = 3001 || process.env.PORT;
-
-const server = app.listen(PORT, () =>
-  console.log(`Server running on port ${PORT}`)
-);
-const io = socket(server);
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
 
 io.use(async (socket, next) => {
   try {
@@ -53,3 +50,4 @@ io.on("connection", (socket) => {
     console.log(`${socket.userId} is disconnected`);
   });
 });
+server.listen(PORT);
