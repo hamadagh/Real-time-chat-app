@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignIn = ({ passedFunction }) => {
+const SignIn = ({ passedFunction, setupSocket }) => {
   const classes = useStyles();
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
@@ -51,6 +51,7 @@ const SignIn = ({ passedFunction }) => {
         localStorage.setItem("token", res.data.token);
         console.log(history);
         history.push("/Dashboard");
+        setupSocket();
       })
       .catch((err) => {
         console.log(err);
