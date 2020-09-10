@@ -5,7 +5,6 @@ import Index from "./pages/Index";
 import io from "socket.io-client";
 import "./App.css";
 import Dashboard from "./pages/dashboard/Dashboard";
-import ChatRoom from "./pages/chatroom/ChatRoom";
 
 function App() {
   const [newSocket, setNewSocket] = useState(null);
@@ -49,11 +48,6 @@ function App() {
         <Route
           path="/Dashboard"
           render={() => <Dashboard socket={newSocket} />}
-          exact
-        />
-        <Route
-          path="/chatroom/:id"
-          render={() => <ChatRoom socket={newSocket} />}
           exact
         />
       </Switch>
