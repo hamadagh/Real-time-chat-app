@@ -32,9 +32,7 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    setupSocket();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <BrowserRouter>

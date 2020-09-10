@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignUp = ({ passedFunction, openSnackBar }) => {
+const SignUp = ({ passedFunction }) => {
   const classes = useStyles();
   const nameRef = React.createRef();
   const emailRef = React.createRef();
@@ -48,7 +48,6 @@ const SignUp = ({ passedFunction, openSnackBar }) => {
       )
       .then((res) => {
         console.log("user created !!");
-        openSnackBar("success");
         passedFunction();
       })
       .catch((err) => {
