@@ -3,8 +3,12 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AuthPage from "./pages/auth/AuthPage";
 import Index from "./pages/Index";
 import io from "socket.io-client";
-import "./App.css";
 import Dashboard from "./pages/dashboard/Dashboard";
+import DevTeam from "./pages/dashboard/components/DevTeam";
+import MarketingTeam from "./pages/dashboard/components/MarketingTeam";
+import DesignTeam from "./pages/dashboard/components/DesignTeam";
+import FinanceTeam from "./pages/dashboard/components/FinanceTeam";
+import "./App.css";
 
 function App() {
   const [newSocket, setNewSocket] = useState(null);
@@ -44,8 +48,28 @@ function App() {
           exact
         />
         <Route
-          path="/Dashboard"
+          path="/dashboard"
           render={() => <Dashboard socket={newSocket} />}
+          exact
+        />
+        <Route
+          path="/dashboard/devteam"
+          render={() => <DevTeam socket={newSocket} />}
+          exact
+        />
+        <Route
+          path="/dashboard/marketingteam"
+          render={() => <MarketingTeam socket={newSocket} />}
+          exact
+        />
+        <Route
+          path="/dashboard/designteam"
+          render={() => <DesignTeam socket={newSocket} />}
+          exact
+        />
+        <Route
+          path="/dashboard/financeteam"
+          render={() => <FinanceTeam socket={newSocket} />}
           exact
         />
       </Switch>

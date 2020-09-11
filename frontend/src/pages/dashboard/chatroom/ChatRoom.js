@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { blue } from "@material-ui/core/colors";
 import SendIcon from "@material-ui/icons/Send";
-import "../dashboard.css";
+import "./chatroom.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -28,8 +28,16 @@ const ColorButton = withStyles((theme) => ({
   },
 }))(Button);
 
-const DevTeam = () => {
+const ChatRoom = ({ match }) => {
   const classes = useStyles();
+
+  const roomId = match.params.id;
+
+  const socket = io("http://localhost:3000", {
+    query: {
+      token: localStorage.getItem("token"),
+    },
+  });
   return (
     <div className="chat-room">
       <div className="dashboard-body">
@@ -73,4 +81,4 @@ const DevTeam = () => {
   );
 };
 
-export default DevTeam;
+export default ChatRoom;

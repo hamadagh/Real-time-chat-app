@@ -9,7 +9,7 @@ const Index = () => {
     if (!token) {
       return history.push("/register");
     } else {
-      return history.push("/Dashboard");
+      return history.push("/dashboard");
     }
   }, []);
   return null;
